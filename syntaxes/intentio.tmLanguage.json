@@ -1,0 +1,191 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "intentio",
+	"scopeName": "source.ieo",
+	"patterns": [
+		{
+			"include": "#comment"
+		},
+		{
+			"include": "#id"
+		},
+		{
+			"include": "#qid"
+		},
+		{
+			"include": "#keyword"
+		},
+		{
+			"include": "#operator"
+		},
+		{
+			"include": "#literal"
+		}
+	],
+	"repository": {
+		"comment": {
+			"patterns": [{
+				"name": "comment.line.intentio",
+				"match": "\\b#.*$"
+			}]
+		},
+		"id": {
+			"patterns": [{
+				"name": "variable.name.id.intentio",
+				"match": "\\b['a-zA-Z0-9]+\\b"
+			}]
+		},
+		"qid": {
+			"patterns": [{
+				"name": "variable.name.qid.intentio",
+				"match": "\\b['a-zA-Z0-9]+:['a-zA-Z0-9]+\\b"
+			}]
+		},
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.flow.intentio",
+					"match": "\\b(if|while|return|break|do|else|eval|yeld)\\b"
+				},
+				{
+					"name": "keyword.control.result.intentio",
+					"match": "\\b(succ|fail)\\b"
+				},
+				{
+					"name": "keyword.operator.logical.intentio",
+					"match": "\\b(and|or|not|xor)\\b"
+				},
+				{
+					"name": "keyword.other.intentio",
+					"match": "\\b(const|impl|in|is|trait|type|_)\\b"
+				},
+				{
+					"name": "keyword.other.unit.intentio",
+					"match": "\\b(enum|export|fun|import|module|struct)\\b"
+				}
+			]
+		},
+		"operator": {
+			"patterns": [
+				{
+					"name": "keyword.operator.arithmetic.intentio",
+					"match": "\\+|-|\\*|/"
+				},
+				{
+					"name": "keyword.operator.relational.intentio",
+					"match": "<=|>=|<|>|===|!==|=="
+				},
+				{
+					"name": "keyword.operator.assignment.intentio",
+					"match": "="
+				}
+			]
+		},
+		"literal": {
+			"patterns": [
+				{
+					"include": "#integer"
+				},
+				{
+					"include": "#float"
+				},
+				{
+					"include": "#string"
+				},
+				{
+					"name": "constant.other.none.intentio",
+					"match": "none"
+				}
+			]
+		},
+		"integer": {
+			"patterns": [
+				{
+					"include": "#binary"
+				},
+				{
+					"include": "#octal"
+				},
+				{
+					"include": "#decimal"
+				},
+				{
+					"include": "#hexadecimal"
+				}
+			]
+		},
+		"binary": {
+			"patterns": [{
+					"name": "constant.numeric.binary.intentio",
+					"match": "0(b|B)[01]+[01_]*"
+				}]
+		},
+		"octal": {
+			"patterns": [{
+				"name": "constant.numeric.octal.intentio",
+				"match": "0(o|O)[0-7]+[0-7_]*"
+			}]
+		},
+		"decimal": {
+			"patterns": [{
+				"name": "constant.numeric.decimal.intentio",
+				"match": "[0-9]+[0-9_]*"
+			}]
+		},
+		"hexadecimal": {
+			"patterns": [{
+				"name": "constant.numeric.decimal.intentio",
+				"match": "0(x|X)[0-9a-fA-F]+[0-9a-fA-F_]*"
+			}]
+		},
+		"float": {
+			"patterns": [
+				{
+					"name": "constant.numeric.float.intentio",
+					"match": "[0-9]+[0-9_]*.[0-9]+[0-9_]*(e|E)[+|-]?(_)*"
+				},
+				{
+					"name": "constant.numeric.float.intentio",
+					"match": "[0-9]+[0-9_]*(e|E)[+|-]?(_)*"
+				}
+			]
+		},
+		"string": {
+			"patterns": [
+				{
+					"include": "#string'"
+				},
+				{
+					"include": "#rawstring"
+				},
+				{
+					"include": "#regexstring"
+				}
+			]
+		},
+		"string'": {
+			"patterns": [{
+					"name": "constant.character.string.intentio",
+					"match": "\\b\"[^\\\"]*\"\\b"
+			}]
+		},
+		"rawstring": {
+			"patterns": [{
+					"name": "constant.character.rawstring.intentio",
+					"match": "none"
+			}]
+		},
+		"regexstring": {
+			"patterns": [
+				{
+					"name": "constant.character.regexstring.intentio",
+					"match": "\\bx\"[^\\\"]*\"\\b"
+				},
+				{
+					"name": "constant.character.regexstring.intentio",
+					"match": "xrawstring"
+				}
+			]
+		}
+	}
+}

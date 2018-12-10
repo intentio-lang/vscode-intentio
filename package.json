@@ -1,0 +1,32 @@
+{
+    "name": "intentio-vscode",
+    "displayName": "intentio-vscode",
+    "description": "",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.29.0"
+    },
+    "categories": [
+        "Programming Languages",
+        "Snippets"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "intentio",
+            "aliases": ["intentio", "intentio"],
+            "extensions": [".ieo"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "intentio",
+            "scopeName": "source.ieo",
+            "path": "./syntaxes/intentio.tmLanguage.json"
+        }],
+        "snippets": [
+            {
+                "language": "latex",
+                "path": "./snippets/intentio.json"
+            }
+        ]
+    }
+}

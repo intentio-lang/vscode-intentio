@@ -1,0 +1,72 @@
+{
+    "if": {
+        "prefix": "if",
+        "body": [
+            "if($1) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Insert if"
+    },
+     "ifelse": {
+        "prefix": "ife",
+        "body": [
+            "if($1) {",
+            "\t$2",
+            "} else {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Insert if else"
+    },
+    "else": {
+    "prefix": "else",
+    "body": [
+        " else {",
+        "\t$0",
+        "}"
+    ],
+    "description": "Insert else"
+    },
+    "while": {
+        "prefix": "while",
+        "body": [
+            "while($1) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Insert while loop"
+    },
+    "function": {
+        "prefix": "fun",
+        "body": [
+            "fun $1($2) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Insert function"
+    },
+    "main": {
+        "prefix": "main",
+        "body": [
+            "fun main() {",
+                "\t$1",
+                "}"
+        ],
+        "description": "Insert main function"
+    },
+    "succ": {
+        "prefix": "succ",
+        "body": [
+            "succ none"
+        ],
+        "description": "Insert succ term!"
+    },
+    "fail": {
+        "prefix": "fail",
+        "body": [
+            "fail none"
+        ],
+        "description": "Insert fail"
+    }
+}
