@@ -9,7 +9,7 @@
         "description": "Insert if"
     },
      "ifelse": {
-        "prefix": "ife",
+        "prefix": "ifelse",
         "body": [
             "if($1) {",
             "\t$2",
@@ -22,7 +22,7 @@
     "else": {
     "prefix": "else",
     "body": [
-        " else {",
+        "else {",
         "\t$0",
         "}"
     ],
@@ -60,13 +60,13 @@
         "body": [
             "succ none"
         ],
-        "description": "Insert succ term!"
+        "description": "Insert succ term"
     },
     "fail": {
         "prefix": "fail",
         "body": [
             "fail none"
         ],
-        "description": "Insert fail"
+        "description": "Insert fail term"
     }
 }

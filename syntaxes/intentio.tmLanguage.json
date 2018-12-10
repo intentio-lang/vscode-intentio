@@ -7,12 +7,6 @@
 			"include": "#comment"
 		},
 		{
-			"include": "#id"
-		},
-		{
-			"include": "#qid"
-		},
-		{
 			"include": "#keyword"
 		},
 		{
@@ -20,48 +14,42 @@
 		},
 		{
 			"include": "#literal"
+		},
+		{
+			"include": "#qid"
+		},
+		{
+			"include": "#id"
 		}
 	],
 	"repository": {
 		"comment": {
 			"patterns": [{
 				"name": "comment.line.intentio",
-				"match": "\\b#.*$"
+				"match": "#$|#[^\"].*$"
 			}]
 		},
-		"id": {
-			"patterns": [{
-				"name": "variable.name.id.intentio",
-				"match": "\\b['a-zA-Z0-9]+\\b"
-			}]
-		},
-		"qid": {
-			"patterns": [{
-				"name": "variable.name.qid.intentio",
-				"match": "\\b['a-zA-Z0-9]+:['a-zA-Z0-9]+\\b"
-			}]
-		},
-		"keywords": {
+		"keyword": {
 			"patterns": [
 				{
 					"name": "keyword.control.flow.intentio",
-					"match": "\\b(if|while|return|break|do|else|eval|yeld)\\b"
+					"match": "\b(if|while|return|break|do|else|eval|yield)\b"
 				},
 				{
 					"name": "keyword.control.result.intentio",
-					"match": "\\b(succ|fail)\\b"
+					"match": "\b(succ|fail)\b"
 				},
 				{
 					"name": "keyword.operator.logical.intentio",
-					"match": "\\b(and|or|not|xor)\\b"
+					"match": "\b(and|or|not|xor)\b"
 				},
 				{
 					"name": "keyword.other.intentio",
-					"match": "\\b(const|impl|in|is|trait|type|_)\\b"
+					"match": "\b(const|impl|in|is|trait|type|_)\b"
 				},
 				{
 					"name": "keyword.other.unit.intentio",
-					"match": "\\b(enum|export|fun|import|module|struct)\\b"
+					"match": "\b(enum|export|fun|import|module|struct)\b"
 				}
 			]
 		},
@@ -69,32 +57,60 @@
 			"patterns": [
 				{
 					"name": "keyword.operator.arithmetic.intentio",
-					"match": "\\+|-|\\*|/"
+					"match": "(\\+|-|\\*|/)"
 				},
 				{
 					"name": "keyword.operator.relational.intentio",
-					"match": "<=|>=|<|>|===|!==|=="
+					"match": "(<=|>=|<|>|===|==!|==)"
 				},
 				{
 					"name": "keyword.operator.assignment.intentio",
 					"match": "="
+				},
+				{
+					"name": "keyword.other.punctuation.intentio",
+					"match": "(;|:|,)"
 				}
 			]
 		},
 		"literal": {
 			"patterns": [
 				{
-					"include": "#integer"
+					"include": "#float"
 				},
 				{
-					"include": "#float"
+					"include": "#integer"
 				},
 				{
 					"include": "#string"
 				},
 				{
 					"name": "constant.other.none.intentio",
-					"match": "none"
+					"match": "\b(none)\b"
+				}
+			]
+		},
+		"qid": {
+			"patterns": [{
+				"name": "variable.name.qid.intentio",
+				"match": "[[\\p{L}\\p{Nl}]-[\\{\\}\\[\\]\\(\\)\\+\\-\\\\*\/=><!:]-[\\s]][[\\p{L}\\p{Nl}\\p{Mn}\\p{Mc}\\p{Nd}\\{Pc}]-[\\{\\}\\[\\]\\(\\)\\+\\-\\\\*\/=><!:]-[\\s]]*:[[\\p{L}\\p{Nl}]-[\\{\\}\\[\\]\\(\\)\\+\\-\\\\*\/=><!:]-[\\s]][[\\p{L}\\p{Nl}\\p{Mn}\\p{Mc}\\p{Nd}\\{Pc}]-[\\{\\}\\[\\]\\(\\)\\+\\-\\\\*\/=><!:]-[\\s]]*"
+			}]
+		},
+		"id": {
+			"patterns": [{
+				"name": "variable.name.id.intentio",
+				"match": "[[\\p{L}\\p{Nl}]-[\\{\\}\\[\\]\\(\\)\\+\\-\\\\*\/=><!:]-[\\s]][[\\p{L}\\p{Nl}\\p{Mn}\\p{Mc}\\p{Nd}\\{Pc}]-[\\{\\}\\[\\]\\(\\)\\+\\-\\\\*\/=><!:]-[\\s]]*"
+			}]
+		},
+		"float": {
+			"patterns": [
+				{
+					"name": "constant.numeric.float.intentio",
+					"match": "[0-9][0-9_]*\\.[0-9][0-9_]*(e|E)(\\+|-)?(_)*]"
+				},
+				{
+					"name": "constant.numeric.float.intentio",
+					"match": "[0-9][0-9_]*(e|E)(\\+|-)?(_)*"
 				}
 			]
 		},
@@ -107,85 +123,73 @@
 					"include": "#octal"
 				},
 				{
-					"include": "#decimal"
+					"include": "#hexadecimal"
 				},
 				{
-					"include": "#hexadecimal"
+					"include": "#decimal"
 				}
 			]
 		},
 		"binary": {
 			"patterns": [{
 					"name": "constant.numeric.binary.intentio",
-					"match": "0(b|B)[01]+[01_]*"
+					"match": "0(b|B)[01][01_]*"
 				}]
 		},
 		"octal": {
 			"patterns": [{
 				"name": "constant.numeric.octal.intentio",
-				"match": "0(o|O)[0-7]+[0-7_]*"
-			}]
-		},
-		"decimal": {
-			"patterns": [{
-				"name": "constant.numeric.decimal.intentio",
-				"match": "[0-9]+[0-9_]*"
+				"match": "0(o|O)[0-7][0-7_]*"
 			}]
 		},
 		"hexadecimal": {
 			"patterns": [{
 				"name": "constant.numeric.decimal.intentio",
-				"match": "0(x|X)[0-9a-fA-F]+[0-9a-fA-F_]*"
+				"match": "0(x|X)[0-9a-fA-F][0-9a-fA-F_]*"
 			}]
 		},
-		"float": {
-			"patterns": [
-				{
-					"name": "constant.numeric.float.intentio",
-					"match": "[0-9]+[0-9_]*.[0-9]+[0-9_]*(e|E)[+|-]?(_)*"
-				},
-				{
-					"name": "constant.numeric.float.intentio",
-					"match": "[0-9]+[0-9_]*(e|E)[+|-]?(_)*"
-				}
-			]
+		"decimal": {
+			"patterns": [{
+				"name": "constant.numeric.decimal.intentio",
+				"match": "[0-9][0-9_]*"
+			}]
 		},
 		"string": {
 			"patterns": [
 				{
-					"include": "#string'"
+					"include": "#regexstring"
 				},
 				{
 					"include": "#rawstring"
 				},
 				{
-					"include": "#regexstring"
+					"include": "#string'"
 				}
 			]
-		},
-		"string'": {
-			"patterns": [{
-					"name": "constant.character.string.intentio",
-					"match": "\\b\"[^\\\"]*\"\\b"
-			}]
-		},
-		"rawstring": {
-			"patterns": [{
-					"name": "constant.character.rawstring.intentio",
-					"match": "none"
-			}]
 		},
 		"regexstring": {
 			"patterns": [
 				{
 					"name": "constant.character.regexstring.intentio",
-					"match": "\\bx\"[^\\\"]*\"\\b"
+					"match": "\\b(t|u|tu|ut)?x\"[^\\\"]*\"\\b"
 				},
 				{
 					"name": "constant.character.regexstring.intentio",
-					"match": "xrawstring"
+					"match": "\\b(t|u|tu|ut)?xr#*\".*\"#*\\b"
 				}
 			]
+		},
+		"rawstring": {
+			"patterns": [{
+					"name": "constant.character.rawstring.intentio",
+					"match": "\\b(t|u|tu|ut)?r#*\".*\"#*\\b"
+			}]
+		},
+		"string'": {
+			"patterns": [{
+					"name": "constant.character.string.intentio",
+					"match": "\\b(t|u|tu|ut)?\"[^\\\"]*\"\\b"
+			}]
 		}
 	}
 }

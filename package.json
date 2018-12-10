@@ -3,6 +3,7 @@
     "displayName": "intentio-vscode",
     "description": "",
     "version": "0.0.1",
+    "publisher": "vscode",
     "engines": {
         "vscode": "^1.29.0"
     },
@@ -13,7 +14,7 @@
     "contributes": {
         "languages": [{
             "id": "intentio",
-            "aliases": ["intentio", "intentio"],
+            "aliases": ["Intentio"],
             "extensions": [".ieo"],
             "configuration": "./language-configuration.json"
         }],
@@ -24,7 +25,7 @@
         }],
         "snippets": [
             {
-                "language": "latex",
+                "language": "intentio",
                 "path": "./snippets/intentio.json"
             }
         ]
