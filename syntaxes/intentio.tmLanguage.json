@@ -33,23 +33,23 @@
 			"patterns": [
 				{
 					"name": "keyword.control.flow.intentio",
-					"match": "\b(if|while|return|break|do|else|eval|yield)\b"
+					"match": "\\b(if|while|return|break|do|else|eval|yield)\\b"
 				},
 				{
 					"name": "keyword.control.result.intentio",
-					"match": "\b(succ|fail)\b"
+					"match": "\\b(succ|fail)\\b"
 				},
 				{
 					"name": "keyword.operator.logical.intentio",
-					"match": "\b(and|or|not|xor)\b"
+					"match": "\\b(and|or|not|xor)\\b"
 				},
 				{
 					"name": "keyword.other.intentio",
-					"match": "\b(const|impl|in|is|trait|type|_)\b"
+					"match": "\\b(const|impl|in|is|trait|type|_)\\b"
 				},
 				{
 					"name": "keyword.other.unit.intentio",
-					"match": "\b(enum|export|fun|import|module|struct)\b"
+					"match": "\\b(enum|export|fun|import|module|struct)\\b"
 				}
 			]
 		},
@@ -57,7 +57,7 @@
 			"patterns": [
 				{
 					"name": "keyword.operator.arithmetic.intentio",
-					"match": "(\\+|-|\\*|/)"
+					"match": "(-|\\+|\\*|/)"
 				},
 				{
 					"name": "keyword.operator.relational.intentio",
@@ -86,20 +86,20 @@
 				},
 				{
 					"name": "constant.other.none.intentio",
-					"match": "\b(none)\b"
+					"match": "\\b(none)\\b"
 				}
 			]
 		},
 		"qid": {
 			"patterns": [{
 				"name": "variable.name.qid.intentio",
-				"match": "[[\\p{L}\\p{Nl}]-[\\{\\}\\[\\]\\(\\)\\+\\-\\\\*\/=><!:]-[\\s]][[\\p{L}\\p{Nl}\\p{Mn}\\p{Mc}\\p{Nd}\\{Pc}]-[\\{\\}\\[\\]\\(\\)\\+\\-\\\\*\/=><!:]-[\\s]]*:[[\\p{L}\\p{Nl}]-[\\{\\}\\[\\]\\(\\)\\+\\-\\\\*\/=><!:]-[\\s]][[\\p{L}\\p{Nl}\\p{Mn}\\p{Mc}\\p{Nd}\\{Pc}]-[\\{\\}\\[\\]\\(\\)\\+\\-\\\\*\/=><!:]-[\\s]]*"
+				"match": "[\\p{L}\\p{Nl}][\\p{L}\\p{Nl}\\p{Mn}\\p{Mc}\\p{Nd}_]*:[\\p{L}\\p{Nl}][\\p{L}\\p{Nl}\\p{Mn}\\p{Mc}\\p{Nd}_]*"
 			}]
 		},
 		"id": {
 			"patterns": [{
 				"name": "variable.name.id.intentio",
-				"match": "[[\\p{L}\\p{Nl}]-[\\{\\}\\[\\]\\(\\)\\+\\-\\\\*\/=><!:]-[\\s]][[\\p{L}\\p{Nl}\\p{Mn}\\p{Mc}\\p{Nd}\\{Pc}]-[\\{\\}\\[\\]\\(\\)\\+\\-\\\\*\/=><!:]-[\\s]]*"
+				"match": "[\\p{L}\\p{Nl}][\\p{L}\\p{Nl}\\p{Mn}\\p{Mc}\\p{Nd}_]*"
 			}]
 		},
 		"float": {
@@ -171,24 +171,24 @@
 			"patterns": [
 				{
 					"name": "constant.character.regexstring.intentio",
-					"match": "\\b(t|u|tu|ut)?x\"[^\\\"]*\"\\b"
+					"match": "(t|u|tu|ut)?x\"[^\\\"]*\""
 				},
 				{
 					"name": "constant.character.regexstring.intentio",
-					"match": "\\b(t|u|tu|ut)?xr#*\".*\"#*\\b"
+					"match": "(t|u|tu|ut)?xr#*\".*\"#*"
 				}
 			]
 		},
 		"rawstring": {
 			"patterns": [{
 					"name": "constant.character.rawstring.intentio",
-					"match": "\\b(t|u|tu|ut)?r#*\".*\"#*\\b"
+					"match": "(t|u|tu|ut)?r#*\".*\"#*"
 			}]
 		},
 		"string'": {
 			"patterns": [{
 					"name": "constant.character.string.intentio",
-					"match": "\\b(t|u|tu|ut)?\"[^\\\"]*\"\\b"
+					"match": "(t|u|tu|ut)?\"[^\\\"]*\""
 			}]
 		}
 	}
