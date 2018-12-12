@@ -37,19 +37,19 @@
 				},
 				{
 					"name": "keyword.control.result.intentio",
-					"match": "\\b(succ|fail)\\b"
+					"match": "\\b(succ|fail)\\b[\\s]"
 				},
 				{
 					"name": "keyword.operator.logical.intentio",
-					"match": "\\b(and|or|not|xor)\\b"
+					"match": "\\b(and|or|not|xor)\\b[\\s]"
 				},
 				{
 					"name": "keyword.other.intentio",
-					"match": "\\b(const|impl|in|is|trait|type|_)\\b"
+					"match": "\\b(const|impl|in|is|trait|type|_)\\b[\\s]"
 				},
 				{
 					"name": "keyword.other.unit.intentio",
-					"match": "\\b(enum|export|fun|import|module|struct)\\b"
+					"match": "\\b(enum|export|fun|import|module|struct)\\b[\\s]"
 				}
 			]
 		},
@@ -182,7 +182,7 @@
 		"rawstring": {
 			"patterns": [{
 					"name": "constant.character.rawstring.intentio",
-					"match": "(t|u|tu|ut)?r#*\".*\"#*"
+					"match": "(t|u|tu|ut)?r\".*\"|(t|u|tu|ut)?r#+\".*\"#+"
 			}]
 		},
 		"string'": {
