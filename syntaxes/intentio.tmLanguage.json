@@ -45,7 +45,7 @@
 				},
 				{
 					"name": "keyword.other.intentio",
-					"match": "\\b(const|impl|in|is|trait|type|_)\\b[\\s]"
+					"match": "\\b(const|extern|impl|in|is|trait|type|_)\\b[\\s]"
 				},
 				{
 					"name": "keyword.other.unit.intentio",
